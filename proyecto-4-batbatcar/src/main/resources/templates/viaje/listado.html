@@ -1,0 +1,60 @@
+<!-- Vista principal: Listado de viajes -->
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="/css/main.css">
+	<title>Listado Viajes</title>
+</head>
+
+<body>
+	<div class="header">
+		<img class="icon" src="/images/batbatcar.png">
+		<p class="app-name">Aplicación Bat Bat Car v2</p>
+	</div>
+	<div class="section">
+		<h3><strong>Listado de Viajes</strong></h3>
+	</div>
+	<div class="center">
+		<form method="get" th:action="@{/buscar-viaje}">
+			<input name="destino" type="text" placeholder="Buscar destino">
+			<button type="submit">Buscar Viaje</button>
+		</form>
+	</div>
+	<p th:text="${mensaje}" class="mensaje-p"></p>
+	<table class="viajes">
+		<tr>
+			<th>Cod. Viaje</th>
+			<th>Ruta</th>
+			<th>Propietario</th>
+			<th>Fecha y hora de salida</th>
+			<th>Estado</th>
+			<th>Acciones</th>
+		</tr>
+		<tr th:each="viaje: ${viajes}">
+			<td th:text="${viaje.getCodViaje()}"></td>
+			<td th:text="${viaje.getRuta()}"></td>
+			<td th:text="${viaje.getPropietario()}"></td>
+			<td th:text="${#temporals.format(viaje.getFechaSalida(), 'dd-MM-yyyy ''a las'' HH:mm')}"></td>
+			<td th:classappend="${(viaje.estaDisponible()) ? 'abierto':'cerrado'}" th:text="${viaje.getEstado()}"></td>
+			<td>
+				<a th:href="@{/viaje-detalles(codigo=${viaje.getCodViaje()})}">Ver detalle</a>
+				<label> / </label>
+				<a th:href="@{/viaje/reservas(codigo=${viaje.getCodViaje()})}">Ver reservas</a>
+				<span th:if="${viaje.estaDisponible()}">
+					<label> / </label>
+					<a th:href="@{/insertar-reservas(viajeCod=${viaje.getCodViaje()})}">Reservar</a>
+				</span>
+			</td>
+		</tr>
+	</table>
+	<div class="center">
+		<a href="/insertar-viajes"><button type="button">Añadir Viajes</button></a>
+	</div>
+
+</body>
+
+</html>

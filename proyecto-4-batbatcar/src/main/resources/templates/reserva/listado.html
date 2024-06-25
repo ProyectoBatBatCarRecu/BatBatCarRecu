@@ -1,0 +1,44 @@
+<!-- Vista para el listado de reservas de un viaje -->
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/main.css">
+    <title>Reservas del Viaje</title>
+</head>
+
+<body>
+    <div class="header">
+        <img class="icon" src="/images/batbatcar.png">
+        <p class="app-name">Aplicación Bat Bat Car v2</p>
+    </div>
+    <div class="section">
+        <h1>Listado de Reservas Viaje [[${viaje.codViaje}]]</h1>
+	</div>
+	<div classs="center">
+        <table>
+            <thead>
+                <tr>
+                    <th>Cod. Reserva</th>
+                    <th>Usuario</th>
+                    <th>Plazas Solicitadas</th>
+                    <th>Fecha de Salida</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="reserva: ${reservas}">
+                    <td th:text="${reserva.codigoReserva}"></td>
+                    <td th:text="${reserva.usuario}"></td>
+                    <td th:text="${reserva.plazasSolicitadas}"></td>
+                    <td th:text="${reserva.viaje.fechaSalida}"></td>
+                </tr>
+            </tbody>
+        </table>
+		<div class="center">
+        <a href="/viajes"><button type="button">Volver al listado</button></a>
+		</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,138 @@
+/* reserva-viaje.css */
+
+/* General Styles */
+html {
+    font-family: Arial, monospace;
+}
+
+body .row {
+    padding: 10px;
+    font-size: 16px;
+}
+
+.center {
+    text-align: center;
+}
+
+/* Header Styles */
+.header {
+    background-color: lightgray;
+    text-transform: uppercase;
+    padding: 5px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.header .icon {
+    width: 100px;
+    float: left;
+}
+
+.header .app-name {
+    float: right;
+    font-weight: bold;
+    margin-top: 60px;
+    margin-right: 20px;
+}
+
+/* Section Styles */
+.section {
+    background-color: antiquewhite;
+    text-align: center;
+    padding: 1px;
+    border-top: 1px solid white;
+    border-bottom: 1px solid darkgrey;
+}
+
+/* Form Styles */
+form {
+    border: 1px solid lightgray;
+    padding: 20px;
+    text-align: left;
+    display: block;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px; /* Increased width */
+    margin: 20px auto;
+    width: 90%;
+}
+
+form input, form label {
+    margin: 4px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+form input[type="submit"] {
+    background-color: antiquewhite;
+    color: black;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+}
+
+form input[type="submit"]:hover {
+    background-color: antiquewhite;
+}
+
+/* Button Styles */
+button {
+    background-color: antiquewhite;
+    color: black;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    width: 100%; /* Matches form width */
+    display: block;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: antiquewhite;
+}
+
+/* Link Styles */
+a {
+    text-decoration: none;
+    display: inline-block;
+    width: 100%; /* Ensures button fills the width */
+}
+
+a button {
+    width: 100%;
+}
+
+.errors {
+    margin-top: 20px;
+    background-color: #ffcccc;
+    border: 1px solid #ff0000;
+    padding: 10px;
+    color: #ff0000;
+    font-size: 16px;
+    text-align: center;
+}
+

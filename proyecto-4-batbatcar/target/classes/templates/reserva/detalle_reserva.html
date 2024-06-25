@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="/css/main.css">
+	<title>Detalle de Reserva</title>
+</head>
+
+<body>
+	<div class="header">
+		<img class="icon" src="/images/batbatcar.png">
+		<p class="app-name">Aplicación Bat Bat Car v2</p>
+	</div>
+	<div class="section">
+		<h1>Detalle de Reserva Código: <span th:text="${reserva.codigoReserva}"></span></h1>
+	</div>
+	<div class="center">
+		<form action="#" method="post">
+			<table>
+				<tbody>
+					<tr>
+						<th>Código de Reserva:</th>
+						<td><input type="text" th:value="${reserva.codigoReserva}" readonly="readonly"></td>
+					</tr>
+					<tr>
+						<th>Usuario:</th>
+						<td><input type="text" th:value="${reserva.usuario}" readonly="readonly"></td>
+					</tr>
+					<tr>
+						<th>Plazas Solicitadas:</th>
+						<td><input type="text" th:value="${reserva.plazasSolicitadas}" readonly="readonly"></td>
+					</tr>
+					<tr>
+						<th>Viaje:</th>
+						<td>
+							<span th:text="${reserva.viaje.ruta}"></span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="center">
+				<a th:href="@{'/viaje-detalles?codigo=' + ${reserva.viaje.codViaje}}" class="button">Volver al listado de reservas del viaje</a>
+			</div>
+		</form>
+	</div>
+</body>
+
+</html>
